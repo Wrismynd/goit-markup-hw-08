@@ -1,0 +1,241 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  border-right: 15px transparent solid;
+  border-left: 15px transparent solid;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  padding: 40px;
+
+  width: 100%;
+  max-width: 450px;
+  max-height: 609px;
+
+  background-color: #ffffff;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 480px) {
+    width: 450px;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  fill: #000000;
+
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+  }
+}
+
+.modal-close-icon {
+  fill: inherit;
+}
+
+.modal-title {
+  // font-weight: 700;
+  // font-size: 20px;
+  // line-height: 23px;
+  // text-align: center;
+  // letter-spacing: 0.03em;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+
+  text-align: center;
+  color: var(--seconadry-text-color);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.modal-field {
+  margin-bottom: 10px;
+}
+
+.modal-imput {
+  width: 100%;
+  height: 40px;
+  padding-left: 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus,
+  &:hover {
+    border-color: var(--accent-color);
+  }
+  &:focus + .input-icon {
+    fill: var(--accent-color);
+  }
+}
+
+.modal-label {
+  display: block;
+  margin-bottom: 4px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--main-text-color);
+}
+
+.modal-comments {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &::placeholder {
+    font-weight: 400;
+    // font-size: 12px;
+    // line-height: 14px;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+  &:focus,
+  &:hover {
+    border-color: var(--accent-color);
+  }
+}
+
+.modal-imput-wrap {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.policy-text {
+  font-weight: 400;
+  // font-size: 14px;
+  // line-height: 24px;
+  
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 0px;
+}
+
+.policy-link {
+  font-weight: 400;
+  padding-left: 4px;
+  // font-size: 14px;
+  // line-height: 24px;
+
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+  color: var(--accent-color);
+}
+
+.policy-text span {
+  content: "";
+  width: 16px;
+  height: 15px;
+  border: 2px solid #000000;
+  border-radius: 2px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // flex-wrap: wrap;
+}
+
+.policy-check:checked + .policy-text span {
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.policy-check:checked + .policy-text .check-icon {
+  fill: #ffffff;
+}
+
+.check-icon {
+  fill: transparent;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+.modal-submit {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+
+  width: 200px;
+  height: 50px;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+  margin: 0 auto;
+  display: block;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    background-color: #188ce8;
+  }
+}
